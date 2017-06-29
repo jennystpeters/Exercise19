@@ -11,23 +11,23 @@ public class Exercise19 {
 
         while(cont == 'y') {
 
-            sumUp(entry);
+            System.out.print("Enter a number: ");
+            int firstNum = entry.nextInt();
 
-            System.out.print("Would you like to continue (y/n)?");
+            System.out.print("Enter another number: ");
+            int secondNum = entry.nextInt();
+
+            System.out.println(sumUp(entry, firstNum, secondNum));
+
+            System.out.print("Would you like to continue (y/n)? ");
             entry.nextLine();
             cont = entry.nextLine().charAt(0);
         }
         System.out.println("Goodbye!");
     }
 
-    private static void sumUp(Scanner entry) {
+    private static String sumUp(Scanner entry, int firstNum, int secondNum) {
         int sum = 0;
-
-        System.out.print("Enter a number: ");
-        int firstNum = entry.nextInt();
-
-        System.out.print("Enter another number: ");
-        int secondNum = entry.nextInt();
 
         if (secondNum < firstNum) {
             firstNum = firstNum * secondNum;
@@ -35,11 +35,12 @@ public class Exercise19 {
             firstNum = firstNum / secondNum;
         }
 
-
         for (int i = firstNum; i <= secondNum; i++) {
             sum = sum + i;
         }
 
-        System.out.println("The sum of all the numbers from " + firstNum + " to " + secondNum + " is " + sum + ".");
+        String result = "The sum of all the numbers from " + firstNum + " to " + secondNum + " is " + sum + ".";
+
+        return result;
     }
 }
